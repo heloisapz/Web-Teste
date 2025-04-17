@@ -1,0 +1,53 @@
+<div class="container">
+    <h3 class="title">Acesse nosso sistema:</h3>
+    <br><br>
+    <div class="containerbuttons">
+        <button name="btnLogin" 
+            style="width: 50%; height: 100%; background-color: lightsteelblue; border-radius: 8px; margin: 6px;">
+            Entrar na sua conta
+        </button>
+        <button routerLink="/cadastro" name="btnCadastrar" 
+            style="width: 50%; height: 100%; background-color: lightsteelblue; border-radius: 8px; margin: 6px;">
+            Criar uma conta
+        </button>
+    </div>
+</div>
+
+<!-- Novo usuário -->
+<div>
+    <button routerLink="/cadastro">Cadastrar novo usuário</button>
+    <div class="input-box">
+        <label for="">Procurar</label>
+        <input type="text" placeholder="Qual registro está buscando?" (input)="search($event)" />
+    </div>
+</div>
+
+<!-- Tabela de usuários -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Tipo</th>
+            <th>Ações</th> <!-- Coluna de ações -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.nome }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>
+            <div *ngIf="usuario.tipo == 0; else adminTemplate">
+              <p>Usuário</p>
+            </div>
+            <ng-template #adminTemplate>
+              <p>Administrador</p>
+            </ng-template>
+          </td>
+          <td>
+            <button routerLink="/editar/{{usuario.id}}">Editar</button>
+            <button>Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+</table>

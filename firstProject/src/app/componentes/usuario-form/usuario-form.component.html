@@ -1,0 +1,37 @@
+<h1>{{btnTitulo}}</h1>
+
+<form [formGroup]="formularioUsuario" (ngSubmit)="submit()">
+
+<input type="hidden" formControlName="id">
+
+  <div class="input_box">
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" formControlName="nome" placeholder="Digite seu nome" required>
+  </div>
+
+  <div class="input_box">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="Digite seu email" required>
+  </div>
+
+  <div class="input_box">
+    <label for="tipo">Tipo</label>
+    <input id="tipo" type="number" formControlName="tipo" placeholder="0 = usuário | 1 = administrador" required>
+  </div>
+
+  <div class="input_box">
+    <label for="senha">Senha</label>
+    <input id="senha" type="password" formControlName="senha" placeholder="Digite sua senha" required>
+  </div>
+
+  <div class="input_box">
+    <label for="confSenha">Confirme sua senha</label>
+    <input id="confSenha" type="password" formControlName="confSenha" placeholder="Confirme sua senha" required>
+  </div>
+
+  <div class="input_box">
+    <button type="submit" [disabled]="!formularioUsuario.valid">{{btnAcao}}</button>
+    <button type="button" routerLink="">Voltar</button>
+  </div>
+
+</form>

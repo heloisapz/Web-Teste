@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/userService/user.service'; // Corrigido o nome para UserService
+import { Router } from '@angular/router';
+import { UserService } from '../../../services/userService/user.service';
 import { Usuario } from '../../models/Usuarios';
+import { Login } from '../../models/Login';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,34 +11,28 @@ import { Usuario } from '../../models/Usuarios';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']  // Corrigido o nome para styleUrls
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
 
-  usuarios: Usuario[] = []; 
-  usuarioGeral: Usuario[] = []; 
+  loginData: Login = {email: '', senha: ''};
+  erro: string = '';
 
-  constructor(private usuarioService: UserService) { 
-
-  }
-
-  ngOnInit(): void {
-    
-    this.usuarioService.GetUsuarios().subscribe(data => {
-      const dados = data.dados;
-      this.usuarios = dados;
-      this.usuarioGeral = dados;
-
+  constructor(private authService: AuthService, private router: Router) {}
+  
+  fazerLogin() : void {
+  this.authService.login(this.loginData).subscribe({
+    next: (res) => {  
+      this.authService.salvarToken(res.token); // Salva o token no localStorage
+      const tipo = res.tipo; // Obtém o tipo de usuário do backend
+      if (tipo === 1) {
+        this.router.navigate(['/admin-page']); // Redireciona para a página de admin se o tipo for Admin
+      } else if (tipo === 0) {
+        this.router.navigate(['/']); // Redireciona para a página inicial se o tipo for Usuário
+      }
+    },
+    error: () => {
+      this.erro = 'Email ou senha incorretos'; // Mensagem de erro se o login falhar
+    }
   })
 
 }
-search(event: Event): void {
-  const target = event.target as HTMLInputElement;
-  const value = target.value.toLowerCase(); // converte valor para lowercase
-
-  this.usuarios = this.usuarioGeral.filter(usuario => {  
-    return usuario.nome.toLowerCase().includes(value) || usuario.email.toLowerCase().includes(value) ; // faz comparação em lowercase
-  });
 }
-
-
-}
-

@@ -12,6 +12,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { UsuarioFormComponent } from './componentes/usuario-form/usuario-form.component';
 import { RouterModule } from '@angular/router';
 import { EditarComponent } from './pages/editar/editar.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditarComponent } from './pages/editar/editar.component';
     HomeComponent,
     CadastroComponent,
     UsuarioFormComponent,
-    EditarComponent
+    EditarComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

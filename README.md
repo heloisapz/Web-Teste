@@ -1,37 +1,41 @@
-🔐 Web API com Angular - Sistema de Login com JWT
-Este projeto é uma aplicação full stack que implementa um sistema de login seguro com autenticação JWT, utilizando:
+<h1>🔐 Web API com Angular - Sistema de Login com JWT</h1>
 
-⚙️ Back-end em .NET 8 Web API
+<p>Este projeto é uma aplicação <strong>full stack</strong> que implementa um sistema de login seguro com autenticação JWT, utilizando:</p>
 
-💻 Front-end em Angular 19
+<ul>
+  <li>⚙️ Back-end em <strong>.NET 8 Web API</strong></li>
+  <li>💻 Front-end em <strong>Angular 19</strong></li>
+  <li>🔐 Autenticação segura com <strong>JWT</strong> e <strong>hash de senha</strong></li>
+</ul>
 
-🔐 Autenticação segura com JWT e hash de senha
+<hr>
 
-🚀 Tecnologias Utilizadas
-🖥️ Back-end
-ASP.NET Core 8
+<h2>🚀 Tecnologias Utilizadas</h2>
 
-Entity Framework Core
+<h3>🖥️ Back-end</h3>
+<ul>
+  <li>ASP.NET Core 8</li>
+  <li>Entity Framework Core</li>
+  <li>MySQL com Pomelo Provider</li>
+  <li>JWT (Json Web Token)</li>
+  <li>Criptografia de Senhas</li>
+</ul>
 
-MySQL com Pomelo Provider
+<h3>🌐 Front-end</h3>
+<ul>
+  <li>Angular 19</li>
+  <li>Angular Services para consumo da API</li>
+  <li>Guards e Interceptors para controle de rotas e tokens</li>
+</ul>
 
-JWT (Json Web Token)
+<hr>
 
-Criptografia de Senhas
+<h2>🐳 Como rodar com Docker</h2>
 
-🌐 Front-end
-Angular 19
+<p>Você pode criar rapidamente um container MySQL para o seu banco de dados com o seguinte comando:</p>
 
-Angular Services para consumo da API
-
-Guards e Interceptors para controle de rotas e tokens
-
-🐳 Como rodar com Docker
-Você pode criar rapidamente um container MySQL para o seu banco de dados com o seguinte comando:
-
-bash
-Copiar
-Editar
+<pre>
+<code>
 docker run -d \
   --name mysql-container \
   -e MYSQL_ROOT_PASSWORD=123456 \
@@ -40,3 +44,5 @@ docker run -d \
   -e MYSQL_PASSWORD=123456 \
   -p 3306:3306 \
   mysql:latest
+</code>
+</pre>

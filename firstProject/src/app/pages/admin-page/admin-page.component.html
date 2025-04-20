@@ -31,7 +31,7 @@
           </td>
           <td>
             <button routerLink="/editar/{{usuario.id}}">Editar</button>
-            <button>Excluir</button>
+            <button (click)="OpenDialog(usuario.id!)">Excluir</button>
           </td>
         </tr>
       </tbody>

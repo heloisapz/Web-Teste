@@ -1,16 +1,84 @@
-.container {
-  padding: 2%;
-  align-items: center;
-  justify-items: center;
-  justify-self: center;
-  width: 40%;
-  margin: 2%;
-  height: 100%;
-  background-color: lightslategray;
-  border-radius: 16px;
+.login-page {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.containerbuttons{
-    flex-direction: row;
-    height: 40%;
+.login-left, .login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.login-left {
+  background-color: #fff;
+}
+
+.login-right {
+  background: linear-gradient(135deg, #8f6ecc, #7154a7);
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.login-left h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.login-left form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-left input {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-left button {
+  background-color: #8f6ecc;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-left button:hover {
+  background-color: #7154a7;
+}
+
+.login-right h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.login-right p {
+  font-size: 14px;
+  margin-bottom: 30px;
+  max-width: 250px;
+}
+
+.login-right button {
+  background-color: white;
+  color: #7154a7;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-right button:hover {
+  background-color: #f5f5f5;
 }

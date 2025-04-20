@@ -1,3 +1,6 @@
+<div class="voltar-container">
+    <p routerLink="/admin-page" class="voltar-link">← Voltar</p>
+  </div>
 <div *ngIf="usuario">
     <app-usuario-form [btnAcao]="btnAcao" [btnTitulo]="btnTitulo" [dadosUsuario]="usuario"
     (onSubmit)="editarUsuario($event)"></app-usuario-form>

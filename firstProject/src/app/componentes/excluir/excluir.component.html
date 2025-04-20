@@ -1,0 +1,16 @@
+<div *ngIf="usuario" class="modal-container">
+    <h2 class="modal-title">Você tem certeza?</h2>
+    <p class="modal-warning">
+      Ao confirmar, o usuário será <strong>excluído permanentemente</strong>!
+    </p>
+  
+    <div class="modal-user-info">
+      <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+      <p><strong>Email:</strong> {{ usuario.email }}</p>
+    </div>
+  
+    <div class="modal-actions">
+      <button class="btn-confirm" (click)="Excluir()">Confirmar</button>
+    </div>
+  </div>
+  

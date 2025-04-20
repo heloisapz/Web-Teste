@@ -7,27 +7,28 @@ import { environment } from '../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
-  private apiUrl = `${environment.ApiUrl}/Usuario`; // É comum ter um endpoint '/auth/login'
+  private apiUrl = `${environment.ApiUrl}/Usuario`; // Endpoint para login (verifique se a URL está correta)
 
   constructor(private http: HttpClient) { }
 
+  // Função para realizar o login
   login(dados: Login): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, dados);
+    return this.http.post(`${this.apiUrl}/login`, dados);  // Envia dados de login para o backend
   }
 
+  // Salva o token no localStorage
   salvarToken(token: string): void {
-
-    localStorage.setItem('token', token);
-
+    localStorage.setItem('authToken', token);  // Armazenando com o nome 'authToken' para melhor clareza
   }
 
+  // Obtém o token armazenado
   obterToken(): string | null {
-    return localStorage.getItem('token');
+    return localStorage.getItem('authToken');  // Retorna o token salvo no localStorage
   }
 
+  // Limpa o token do localStorage
   limparToken(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('authToken');  // Remove o token do localStorage
   }
 }

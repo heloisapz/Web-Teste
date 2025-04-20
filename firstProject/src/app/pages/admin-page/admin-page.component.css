@@ -1,0 +1,108 @@
+/* Container principal */
+div {
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Botão "Cadastrar novo usuário" */
+  div > button {
+    background-color: #8f6ecc;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  div > button:hover {
+    background-color: #7154a7;
+  }
+  
+  /* Caixa de busca */
+  .input-box {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-box label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .input-box input {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: border 0.3s;
+  }
+  
+  .input-box input:focus {
+    border-color: #8f6ecc;
+    outline: none;
+  }
+  
+  /* Tabela */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .table thead {
+    background-color: #8f6ecc;
+    color: white;
+  }
+  
+  .table th, .table td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 15px;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1ecfc;
+  }
+  
+  /* Botões de ação na tabela */
+  .table td button {
+    padding: 8px 14px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .table td button:first-child {
+    background-color: #8f6ecc;
+    color: white;
+  }
+  
+  .table td button:first-child:hover {
+    background-color: #7154a7;
+  }
+  
+  .table td button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .table td button:last-child:hover {
+    background-color: #c62828;
+  }
+  

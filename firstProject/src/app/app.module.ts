@@ -13,15 +13,18 @@ import { UsuarioFormComponent } from './componentes/usuario-form/usuario-form.co
 import { RouterModule } from '@angular/router';
 import { EditarComponent } from './pages/editar/editar.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { ExcluirComponent } from './componentes/excluir/excluir.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CadastroComponent,
-    UsuarioFormComponent,
     EditarComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    UserPageComponent,
+    ExcluirComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    UsuarioFormComponent,
   ],
   providers: [
     provideClientHydration(withEventReplay())

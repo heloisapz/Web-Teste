@@ -1,0 +1,21 @@
+.voltar-container {
+    margin: 30px ;
+    
+  }
+  
+  .voltar-link {
+    display: inline-block;
+    color: #8f6ecc;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .voltar-link:hover {
+    background-color: #ecf0f1;
+    color: #7154a7 ;
+  }
+  

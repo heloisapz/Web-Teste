@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/userService/user.service'; // Corrigido o nome para UserService
 import { Usuario } from '../../models/Usuarios';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcluirComponent } from '../../componentes/excluir/excluir.component';
+
 
 @Component({
   selector: 'app-admin-page',
@@ -12,7 +15,8 @@ export class AdminPageComponent {
 usuarios: Usuario[] = []; 
   usuarioGeral: Usuario[] = []; 
 
-  constructor(private usuarioService: UserService) { 
+  constructor(private usuarioService: UserService, public dialog: MatDialog) { 
+    // Inicializa o array de usuários
 
   }
 
@@ -35,5 +39,12 @@ search(event: Event): void {
   });
 }
 
-
+OpenDialog(id : number){
+  this.dialog.open(ExcluirComponent, {
+    width: '350px', 
+    height: '350px',
+    data: {id: id}, 
+  });
+  
+}
 }

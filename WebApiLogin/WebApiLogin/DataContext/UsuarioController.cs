@@ -55,13 +55,20 @@ namespace WebApiLogin.Controllers
             return Ok(response);
         }
 
-        [HttpPost("tipo")]
-        public async Task<ActionResult<ServiceResponse<object>>> TipoUsuario([FromBody] UsuarioModel loginInfo)
+        [HttpPost("login")]
+        public async Task<ActionResult<ServiceResponse<object>>> TipoUsuario([FromBody] LoginDTO loginInfo)
         {
             // Hasheia a senha para comparação
-            loginInfo.Senha = HashHelper.GerarHash(loginInfo.Senha);
+            //loginInfo.Senha = HashHelper.GerarHash(loginInfo.Senha);
             var response = await _usuarioInterface.TipoUsuario(loginInfo);
             return Ok(response);
+        }
+
+        [HttpGet("verificar-email")]
+        public async Task<ActionResult<bool>> VerificarEmail([FromQuery] string email)
+        {
+            var existe = await _usuarioInterface.VerificarEmailExistente(email);
+            return Ok(existe);
         }
     }
 }

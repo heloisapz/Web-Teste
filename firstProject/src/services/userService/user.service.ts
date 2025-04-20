@@ -30,4 +30,11 @@ export class UserService {
   EditarUsuario(usuario: Usuario): Observable<Response<Usuario[]>> {
     return this.http.put<Response<Usuario[]>>(`${this.apiUrl}`, usuario);
   }
+
+  ExcluirUsuario(id: number): Observable<Response<Usuario[]>> {
+    return this.http.delete<Response<Usuario[]>>(`${this.apiUrl}?id=${id}`);}
+
+  VerificarEmail(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/verificar-email?email=${email}`);
+  }
 }

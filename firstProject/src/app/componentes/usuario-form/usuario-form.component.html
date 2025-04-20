@@ -1,8 +1,8 @@
-<h1>{{btnTitulo}}</h1>
+<h1>{{ btnTitulo }}</h1>
 
-<form [formGroup]="formularioUsuario" (ngSubmit)="submit()">
+<form *ngIf="formularioUsuario" [formGroup]="formularioUsuario" (ngSubmit)="submit()">
 
-<input type="hidden" formControlName="id">
+  <input type="hidden" formControlName="id">
 
   <div class="input_box">
     <label for="nome">Nome</label>
@@ -12,11 +12,23 @@
   <div class="input_box">
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" placeholder="Digite seu email" required>
+    <div *ngIf="formularioUsuario.get('email')?.invalid && formularioUsuario.get('email')?.touched">
+      <small *ngIf="formularioUsuario.get('email')?.hasError('required')">O email é obrigatório.</small>
+      <small *ngIf="formularioUsuario.get('email')?.hasError('email')">O email deve ser válido.</small>
+      <small *ngIf="formularioUsuario.get('email')?.hasError('emailExistente')">Este e-mail já está em uso.</small>
+    </div>
   </div>
 
   <div class="input_box">
-    <label for="tipo">Tipo</label>
-    <input id="tipo" type="number" formControlName="tipo" placeholder="0 = usuário | 1 = administrador" required>
+    <label for="tipo">Tipo de Usuário</label>
+    <select id="tipo" formControlName="tipo" required>
+      <option value="" disabled selected>Selecione o tipo</option>
+      <option value="0">Usuário</option>
+      <option value="1">Administrador</option>
+    </select>
+    <div *ngIf="formularioUsuario.get('tipo')?.invalid && formularioUsuario.get('tipo')?.touched">
+      <small>O tipo de usuário é obrigatório.</small>
+    </div>
   </div>
 
   <div class="input_box">
@@ -25,13 +37,16 @@
   </div>
 
   <div class="input_box">
-    <label for="confSenha">Confirme sua senha</label>
+    <label for="confSenha">Confirme a Senha</label>
     <input id="confSenha" type="password" formControlName="confSenha" placeholder="Confirme sua senha" required>
+    <div *ngIf="formularioUsuario.hasError('senhaNaoConfere') && formularioUsuario.get('confSenha')?.touched">
+      <small>As senhas não coincidem.</small>
+    </div>
   </div>
 
   <div class="input_box">
-    <button type="submit" [disabled]="!formularioUsuario.valid">{{btnAcao}}</button>
-    <button type="button" routerLink="">Voltar</button>
+    <button type="submit" [disabled]="!formularioUsuario.valid">{{ btnAcao }}</button>
+    <!-- <button type="button" routerLink="">Voltar</button> -->
   </div>
 
 </form>

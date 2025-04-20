@@ -1,22 +1,22 @@
-<div class="login-container">
-    <h3 class="title">Login</h3>
-    <br><br>
-
-    <form (ngSubmit)="fazerLogin()">
-        <input type="email"[(ngModel)]="loginData.email" required placeholder="Digite seu email">
-        <input type="password" [(ngModel)]="loginData.senha" required placeholder="Digite sua senha">
+<div class="login-page">
+    <!-- Lado Esquerdo - Login -->
+    <div class="login-left">
+      <h2>Bem-vindo!</h2>
+  
+      <form (ngSubmit)="fazerLogin()">
+        <input type="email"[(ngModel)]="loginData.Email" name="email" required placeholder="Digite seu email">
+        <input type="password" [(ngModel)]="loginData.Senha" name="senha" required placeholder="Digite sua senha">
         <button type="submit">Entrar</button>
-    </form>
-
-    <div class="containerbuttons">
-        <button routerLink="/admin-page" name="btnLogin" 
-            style="width: 50%; height: 100%; background-color: lightsteelblue; border-radius: 8px; margin: 6px;">
-            Entrar na sua conta
-        </button>
-        <!-- <button routerLink="/cadastro" name="btnCadastrar" 
-            style="width: 50%; height: 100%; background-color: lightsteelblue; border-radius: 8px; margin: 6px;">
-            Criar uma conta
-        </button> -->
+      </form>
+  
+      <div *ngIf="erro" class="erro">{{ erro }}</div>
     </div>
-</div>
-
+  
+    <!-- Lado Direito - Cadastro -->
+    <div class="login-right">
+      <h3><strong>Não possui login?</strong></h3>
+      <p>Faça seu cadastro</p>
+  
+      <button routerLink="/cadastro">Criar Conta</button>
+    </div>
+  </div>
